@@ -1,0 +1,33 @@
+<div class="row" style="margin-top:50px;">
+	<div class="col-sm-6 offset-sm-3 col-xs-12">
+		<div class="card">
+			<div class="card-body">
+			<div class="spinner" ng-show="loader_flag">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+			
+			<form ng-hide="loader_flag">
+			<h5 class="text-center text-orange">Search With Google</h5>
+    			<div class="form-group">
+				    <label for="exampleInputEmail1">Location</label>
+				    <input type="text" class="form-control"  gm-places-autocomplete ng-model="autocomplete" placeholder="Enter Location" >
+				    <input type="text" class="hidden" ng-model="place.address">
+				    <input type="text" class="hidden" ng-model="place.lat">
+				    <input type="text" class="hidden" ng-model="place.lng">
+				    <input type="text" class="hidden" ng-model="place.id">
+			    </div>
+			    <div class="text-right">
+			    <button class="btn btn-outline-primary btn-sm" ng-click="savePlace(place)" type="button">Save</button>
+			    </div>
+		    </form>
+
+		  </div>
+			</div>
+		</div>
+		
+
+
+	</div>
+</div>
