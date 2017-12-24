@@ -34,6 +34,7 @@ app.controller('loginController', function($scope, $http, $window){
         else {
             // $location.path('/home');
            localStorage.setItem('token',res.data.token);
+           localStorage.setItem('user_id',res.data.user_id);
             $window.open('/home', "_self");
         }     
     }).catch(function(res){

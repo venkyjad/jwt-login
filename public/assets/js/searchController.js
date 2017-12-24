@@ -5,6 +5,7 @@ app.controller('searchController', function($scope, $http, $window){
   }
   $scope.master = {};
   $scope.place = {};
+
   $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
       var res = $scope.autocomplete.getPlace();
       $scope.place.address = res.formatted_address;
@@ -12,12 +13,14 @@ app.controller('searchController', function($scope, $http, $window){
       $scope.place.lat = res.geometry.location.lat();
       $scope.place.lng = res.geometry.location.lng();
       $scope.place.id =  res.place_id;
+
       
       $scope.$apply();
   });
 
   $scope.savePlace = function(place){
   	$scope.loader_flag = true;
+    $scope.place.user_id = localStorage.getItem('user_id');
   	url = 'locations'
     $http({
       method: "POST",

@@ -3,9 +3,10 @@ app.controller('savedSearchesController', function($scope, $http, $window){
     $window.open('/','_self');
   }
 
-	$scope.savePlace = function(){
+	$scope.getPlaces = function(){
   	$scope.loader_flag = true;
-  	url = 'locations'
+    id = localStorage.getItem('user_id')
+  	url = 'locations/'+id;
     $http({
       method: "get",
       url: url,
@@ -33,7 +34,7 @@ app.controller('savedSearchesController', function($scope, $http, $window){
   	
 
   }
-  $scope.savePlace();
+  $scope.getPlaces();
 
   
 });

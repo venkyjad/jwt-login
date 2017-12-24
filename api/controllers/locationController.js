@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 
 
 exports.list_all_locations = function(req, res) {
-  Places.find({}, function(err, list) {
+  Places.find({user_id:req.params.id}, function(err, list) {
     if (err)
       res.send(err);
     res.json(list);
@@ -15,7 +15,8 @@ exports.list_all_locations = function(req, res) {
 
 
 exports.save_location = function(req, res) {
-  var new_task = new Places({
+  var new_place = new Places({
+    user_id: req.body.user_id,
     address: req.body.address,
     location:{
       lat: req.body.lat,
@@ -24,7 +25,7 @@ exports.save_location = function(req, res) {
     }
 
   });
-  new_task.save(function(err, task) {
+  new_place.save(function(err, task) {
     if (err)
       res.send(err);
     res.json(task);

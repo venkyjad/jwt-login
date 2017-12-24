@@ -7,8 +7,10 @@ module.exports = function(app) {
 
 	
 	app.route('/locations')
-		.get(userHandlers.loginRequired, todoList.list_all_locations)
 		.post(userHandlers.loginRequired, todoList.save_location);
+
+	app.route('/locations/:id')
+		.get(userHandlers.loginRequired, todoList.list_all_locations)
 
 	app.route('/auth/register')
 		.post(userHandlers.register);
