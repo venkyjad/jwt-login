@@ -2,15 +2,15 @@
 'use strict';
 
 module.exports = function(app) {
-	var todoList = require('../controllers/locationController'),
+	var location = require('../controllers/locationController'),
 	userHandlers = require('../controllers/userController.js');
 
 	
 	app.route('/locations')
-		.post(userHandlers.loginRequired, todoList.save_location);
+		.post(userHandlers.loginRequired, location.save_location);
 
 	app.route('/locations/:id')
-		.get(userHandlers.loginRequired, todoList.list_all_locations)
+		.get(userHandlers.loginRequired, location.list_all_locations)
 
 	app.route('/auth/register')
 		.post(userHandlers.register);
